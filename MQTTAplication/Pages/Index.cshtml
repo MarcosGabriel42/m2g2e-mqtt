@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Dados do Sensor</h1>
+
+@* <p>Temperatura: @Model.Temperatura °C</p>
+<p>Umidade: @Model.Umidade %</p> *@
+
+<table>
+    <thead>
+        <tr>
+            <th>Temperatura</th>
+            <th>Umidade</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dado in Model.MqttData)
+        {
+            <tr>
+                <td>@dado.Temperature °C</td>
+                <td>@dado.Humidity %</td>
+                <td>@dado.Timestamp</td>
+            </tr>
+        }
+    </tbody>
+</table>
